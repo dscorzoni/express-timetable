@@ -2,6 +2,8 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var flash = require('connect-flash');
 var logger = require('morgan');
 
 var indexRouter = require('./controllers/index');
@@ -16,7 +18,17 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+
+// Set Cookie Parser, sessions and flash
+app.use(cookieParser('NotSoSecret'));
+app.use(session({
+  secret: 'Something',
+  cookie: { maxAge: 60000 },
+  resave: true,
+  saveUninitialized: true
+}));
+app.use(flash());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
