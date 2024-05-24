@@ -13,14 +13,17 @@
     </head>
     <body>
         <div class="container">
-            <h1 class="text-center">Sistema de Registro de Horas</h1>
-            <p class="text-center">Insira suas informações abaixo para logar no sistema:</p>
-            <form action="/users/login" method="POST">
-                <input type="text" name="username" placeholder="Digite o seu nome de usuário" />
-                <input type="password" name="password" placeholder="Digite a sua senha" />
-                <button>Login</button>
+            <h1 class="text-center">Novo Usuário</h1>
+            <p class="text-center">Preencha as informações a seguir para criar sua conta:</p>
+            <form action="/users/new" method="POST">
+                <input type="text" name="username" placeholder="Nome de Usuário" />
+                <input type="text" name="name" placeholder="Nome Completo" />
+                <input type="email" name="email" placeholder="E-mail" />
+                <input type="password" name="password" placeholder="Crie uma Senha" />
+                <input type="password" name="password-confirm" placeholder="Confirme a sua Senha" />
+                <button>Criar</button>
             </form>
-            <a href="/users/new">Novo usuário? Crie sua conta!</a>
+            <a href="/">Voltar</a>
         </div>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

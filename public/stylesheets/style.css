@@ -1,8 +1,85 @@
-body {
-  padding: 50px;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #40798C;
+  --bg-color: #1F363D;
+  --white: #F1F7F9;
+  --grey: #C4C4C4;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  margin-block: 1rem;
+}
+
+.container {
+  width: 90%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 300px;
+  padding-block: 1rem;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+  padding: 0.5rem;
+  font-size: 16px;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid var(--grey);
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  margin-block: 1rem;
+  padding: 0.8rem;
+  font-size: 16px;
+  text-align: center;
+  border: none;
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--bg-color);
+}
+
 a {
-  color: #00B7FF;
+  text-decoration: none;
+  color: var(--primary);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
 }
