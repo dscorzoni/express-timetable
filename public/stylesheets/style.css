@@ -81,6 +81,40 @@ a:hover {
   text-decoration: underline;
 }
 
+.home-panel {
+  text-align: center;
+  margin-block: 3rem;
+}
+
+.group-buttons {
+  margin-block: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.home-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: 150px;
+  height: 100px;
+  padding: 2rem;
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  background-color: var(--primary);
+}
+
+.home-button > a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--white);
+}
+
 /* Utility classes */
 .text-center {
   text-align: center;

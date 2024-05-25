@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sistema de Registro de Horas</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="text-center">Bem-vindo <%= user %>!</h1>
+            <p class="text-center">Escolha abaixo o que deseja fazer:</p>
+            <div class="home-panel">
+                <div class="group-actions">
+                    <h2>Gestão de Usuário</h2>
+                    <div class="group-buttons">
+                        <div class="home-button">
+                            <a href="/users/change"><i class="fa-solid fa-id-card"></i>Alterar dados</a>
+                        </div>
+
+                        <div class="home-button">
+                            <a href="/users/delete"><i class="fa-solid fa-trash"></i>Apagar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="group-actions">
+                    <h2>Registro de Horas</h2>
+                    <div class="group-buttons">
+                        <div class="home-button">
+                            <a href="/hours/new"><i class="fa-solid fa-business-time"></i>Registrar</a>
+                        </div>
+
+                        <div class="home-button">
+                            <a href="/hours"><i class="fa-solid fa-list"></i>Ver Lista</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="/users/logout">Sair da conta</a>
+        </div>
+    </body>
+</html>
