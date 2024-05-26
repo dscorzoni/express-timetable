@@ -115,9 +115,17 @@ a:hover {
   color: var(--white);
 }
 
+i {
+  font-size: 24px;
+}
+
 /* Utility classes */
 .text-center {
   text-align: center;
+}
+
+.m-1 {
+  margin: 1rem;
 }
 
 .alert {
@@ -128,11 +136,11 @@ a:hover {
 }
 
 .alert-success {
-  background-color: rgb(170, 247, 170);
+  background-color: rgb(215, 252, 215);
   color: darkgreen;
 }
 
 .alert-error {
-  background-color: rgb(249, 190, 190);
+  background-color: rgb(250, 222, 222);
   color: darkred;
 }

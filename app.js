@@ -52,4 +52,16 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+// Initializing database
+(async () => {
+  const database = require('./models/database');
+
+  try {
+      const resultado = await database.sync();
+      console.log(resultado);
+  } catch (error) {
+      console.log(error);
+  }
+})();
+
 module.exports = app;
