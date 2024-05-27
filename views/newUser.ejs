@@ -18,7 +18,7 @@
                 <button>Criar</button>
             </form>
             <% if (flashMessage.length > 0) { %>
-            <p class="alert alert-error" role="alert"><%= flashMessage %></p>
+            <p class="alert alert-<%= flashMessage[0].type %>"><%= flashMessage[0].message %></p>
             <% } %>
             <a href="/" class="m-1">Voltar</a>
         </div>

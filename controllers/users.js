@@ -19,21 +19,21 @@ router.post('/new', function(req, res, next) {
 
 /* Validation Functions */
 
-function validateNewUserForm(req, res) {
-  if (isFormComplete(req) && isPasswordMatching(req)) {
-    addUser(req);
-    req.flash('message', 'Conta criada com sucesso! Prossiga com o login.');
+async function validateNewUserForm(req, res) {
+  if (isFormComplete(req) && isPasswordMatching(req) && await addUser(req)) {
+    req.flash('message', {'type': 'success', 'message': 'Conta criada com sucesso! Prossiga com o login.'});
     res.redirect('/');
-  } else {
-    res.redirect('/users/new');
-  }
+    return;
+    }
+  res.redirect('/users/new');
+  return;
 }
 
 function isFormComplete(req) {
   if (req.body.username != '' && req.body.name != '' && req.body.email != '' && req.body.password != '' && req.body.confirm_password != '') {
     return true;
   }
-  req.flash('message', 'Erro: todos os campos devem ser preenchidos.');
+  req.flash('message', {'type': 'error', 'message': 'Erro: todos os campos devem ser preenchidos.'});
   return false;
 }
 
@@ -41,22 +41,10 @@ function isPasswordMatching(req, res) {
   if (req.body.password === req.body.confirm_password) {
     return true;
   }
-  req.flash('message', 'Erro: As senhas estão diferentes.');
+  req.flash('message', {'type': 'error', 'message': 'Erro: as senhas estão diferentes.'});
   return false;
 }
 
 
-
-
-// User CRUD functions
-// async function addUser(req) {
-//   const userInstance = await userModel.create({
-//     username: req.body.username,
-//     fullName: req.body.name,
-//     email: req.body.email,
-//     password: req.body.password
-//   });
-//   return userInstance;
-// }
 
 module.exports = router;

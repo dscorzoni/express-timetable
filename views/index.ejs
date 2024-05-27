@@ -9,14 +9,14 @@
         <div class="container">
             <h1 class="text-center">Sistema de Registro de Horas</h1>
             <p class="text-center">Insira suas informações abaixo para logar no sistema:</p>
-            <form action="/users/login" method="POST">
+            <form action="/home" method="POST">
                 <input type="text" name="username" placeholder="Nome de usuário" />
                 <input type="password" name="password" placeholder="Senha" />
                 <button>Login</button>
             </form>
             <a href="/users/new" class="m-1">Novo usuário? Crie sua conta!</a>
             <% if (flashMessage.length > 0) { %>
-            <p class="alert alert-success"><%= flashMessage %></p>
+            <p class="alert alert-<%= flashMessage[0].type %>"><%= flashMessage[0].message %></p>
             <% } %>
         </div>
     </body>
