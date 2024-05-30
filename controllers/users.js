@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var { userModel, addUser } = require('../models/users');
+var { userModel, addUser, deleteUser } = require('../models/users');
+const authToken = require('./login').authToken;
 
 /* Users Routes */
 router.get('/new', function(req, res, next) {
@@ -12,6 +13,14 @@ router.post('/new', function(req, res, next) {
   validateNewUserForm(req, res);
 });
 
+router.get('/delete', authToken, async function(req, res) {
+  if (await deleteUser(req)) {
+    req.flash('message', {'type': 'success', 'message': 'Usuário foi deletado com sucesso.'});
+  } else {
+    req.flash('message', {'type': 'error', 'message': 'Houve um erro. Tente novamente.'});
+  }
+  res.redirect('/login/logout');
+});
 
 
 

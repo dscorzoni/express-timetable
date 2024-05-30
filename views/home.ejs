@@ -19,7 +19,7 @@
                         </div>
 
                         <div class="home-button">
-                            <a href="/users/delete"><i class="fa-solid fa-trash"></i>Apagar</a>
+                            <a href="#" onclick="areYouSure()"><i class="fa-solid fa-trash"></i>Apagar</a>
                         </div>
                     </div>
                 </div>
@@ -38,5 +38,11 @@
             </div>
             <a href="/login/logout" class="m-1">Sair da conta</a>
         </div>
+        <script>
+            function areYouSure() {
+                const decision = confirm("Tem certeza que deseja apagar sua conta?");
+                if (decision) location.href = "/users/delete";
+            }
+        </script>
     </body>
 </html>

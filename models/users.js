@@ -51,5 +51,16 @@ async function getUser(req) {
     return false;
 }
 
+async function deleteUser(req) {
+    try {
+        const userInstance = await userModel.findOne({ where: { username: req.user.username }});
+        const deleteAction = await userInstance.destroy();
+        return true;
+    }
+    catch {
+        return false;
+    }
+}
+
 // Exporting modules
-module.exports = {userModel, addUser, getUser};
+module.exports = {userModel, addUser, getUser, deleteUser};
