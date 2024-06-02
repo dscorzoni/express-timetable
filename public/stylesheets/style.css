@@ -51,6 +51,10 @@ input[type="text"], input[type="password"], input[type="email"] {
   border-bottom: 1px solid var(--grey);
 }
 
+label {
+  color: var(--grey);
+}
+
 input:focus {
   outline: none;
 }

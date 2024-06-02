@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sistema de Registro de Horas</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="text-center">Alterar Dados do Usuário</h1>
+            <p class="text-center">Preencha as informações a seguir para alterar os dados de sua conta:</p>
+            <form action="/users/change" method="POST">
+                <label for="username">Nome de usuário:</label>
+                <input type="text" name="name" id="name" placeholder="Nome de usuário" value="<%= user.username %>" disabled />
+                <label for="name">Nome completo:</label>
+                <input type="text" name="name" id="name" placeholder="Nome Completo" value="<%= user.fullName %>" />
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" id="email" placeholder="E-mail" value="<%= user.email %>" />
+                <input type="password" name="old_password" id="old_password" placeholder="Senha atual" />
+                <input type="password" name="password" id="password" placeholder="Nova senha" />
+                <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirme nova senha" />
+                <button>Alterar</button>
+            </form>
+            <% if (flashMessage.length > 0) { %>
+            <p class="alert alert-<%= flashMessage[0].type %>"><%= flashMessage[0].message %></p>
+            <% } %>
+            <a href="/home" class="m-1">Voltar</a>
+        </div>
+    </body>
+</html>

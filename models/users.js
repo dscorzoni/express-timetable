@@ -51,6 +51,11 @@ async function getUser(req) {
     return false;
 }
 
+async function getUserInfo(req) {
+    const userInstance = await userModel.findOne({ where: { username: req.user.username }});
+    return userInstance;
+}
+
 async function deleteUser(req) {
     try {
         const userInstance = await userModel.findOne({ where: { username: req.user.username }});
@@ -62,5 +67,14 @@ async function deleteUser(req) {
     }
 }
 
+async function updateUser(req) {
+    const userInstance = await userModel.findOne({ where: { username: req.user.username }});
+    userInstance.fullName = req.body.name;
+    userInstance.email = req.body.email;
+    userInstance.password = await bcrypt.hash(req.body.password, 13);
+    await userInstance.save();
+    return true;
+}
+
 // Exporting modules
-module.exports = {userModel, addUser, getUser, deleteUser};
+module.exports = {userModel, addUser, getUser, deleteUser, getUserInfo, updateUser};
