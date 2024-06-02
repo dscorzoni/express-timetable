@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sistema de Registro de Horas</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="text-center">Registrar Horário</h1>
+            <p class="text-center">Preencha as informações a seguir para registrar tempo de trabalho:</p>
+            <form action="/time/new" method="POST">
+                <label for="starttime" class="text-center">Horário de Início</label>
+                <input type="datetime-local" name="starttime" id="starttime" />
+                <label for="endtime" class="text-center">Horário de Fim</label>
+                <input type="datetime-local" name="endtime" id="endtime" />
+                <button>Registrar Horário</button>
+            </form>
+            <% if (flashMessage.length > 0) { %>
+            <p class="alert alert-<%= flashMessage[0].type %>"><%= flashMessage[0].message %></p>
+            <% } %>
+            <a href="/home" class="m-1">Voltar</a>
+        </div>
+    </body>
+</html>
