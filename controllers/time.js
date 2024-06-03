@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const authToken = require('./login').authToken;
-const { addTime } = require('../models/time');
+const { addTime, getTimeList } = require('../models/time');
 
 
 // TimeTable Routes
@@ -17,6 +17,11 @@ router.post('/new', authToken, async function(req, res) {
     }
     res.redirect('/time/new');
     return;
+});
+
+router.get('/', authToken, async function(req, res) {
+    const timeList = await getTimeList(req);
+    res.render('timeList', { timeList });
 });
 
 module.exports = router;

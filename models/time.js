@@ -27,4 +27,10 @@ async function addTime(req) {
     return timeInstance;
 }
 
-module.exports = { addTime };
+async function getTimeList(req) {
+    const userInstance = await userModel.findOne({ where: { username: req.user.username }});
+    const timeInstance = await timeModel.findAll({ where: { UserId: userInstance.id }});
+    return timeInstance;
+}
+
+module.exports = { addTime, getTimeList };

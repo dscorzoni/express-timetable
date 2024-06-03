@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sistema de Registro de Horas</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="text-center">Horários Registrados</h1>
+            <% if (timeList.length == 0) { %>
+            <p class="text-center">Este usuário ainda não fez nenhum registro de horário!</p>
+            <% } else { %>
+            <p class="text-center">Total de horários cadastrados: <strong><%= timeList.length %></strong>.</p>
+            <table>
+                <tr>
+                    <th>Início</th>
+                    <th>Fim</th>
+                </tr>
+
+                <% for (row of timeList) { %>
+                <tr>
+                    <td><%= row.starttime.toLocaleString('pt-br') %></td>
+                    <td><%= row.endtime.toLocaleString('pt-br') %></td>
+                </tr>
+                <% } %>
+            </table>
+            <% } %>
+
+            <a href="/home" class="m-1">Voltar</a>
+        </div>
+    </body>
+</html>
