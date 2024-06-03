@@ -55,3 +55,25 @@ As telas abaixo são auto-explicativas:
 -   Este foi o meu primeiro projeto significativo utilizando NodeJS e ExpressJS, então entender como a arquitetura MVC funciona com essa stack foi bem interessante.
 -   Também aprendi a implementar JWT Authentication em Express para manter o usuário logado nas diversas telas.
 -   Foi também minha primeira vez utilizando [Sequelize](https://sequelize.org/) como biblioteca ORM. É incrivelmente fácil de usar e com uma documentação excelente.
+
+## Como testar essa aplicação?
+
+1. Clone o repositório para seu computador:
+
+```git
+git clone https://github.com/dscorzoni/express-timetable.git
+```
+
+2. Instale as dependências:
+
+```
+npm install
+```
+
+3. Rode a aplicação:
+
+```
+npm start
+```
+
+4. Acesse localhost:8080 na sua máquina (ou a porta de sua escolha caso tenha alterado .env).
